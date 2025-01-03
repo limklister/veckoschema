@@ -3,36 +3,7 @@ let weeks = [];
 const daysOfWeek = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
 let draggedElement = null;
 
-// Meal suggestions
-const vegetarianSuggestions = [
-    "Tofustroganoff", "Morotssoppa", "linsgryta med matvete", 
-    "Pastasallad med pesto och kikärtor", "hamburgare", 
-    "Klyftpotatis + bön/tofubiffar", "Sojafärssås M spagetti",
-    "Broccolisoppa/ pasta m broccoli/spenat/grönkålssås",
-    "Chili sin carne", "Potatis och sojabollar", "one-pot pasta",
-    "Pizza", "tofubowl", "Lasagne", "Potatissoppa m lök/purjolök",
-    "pasta svamp ärtor havregrädde + (quorn)", "thaicurry m ris",
-    "Spagetti och linsragu bolognese", "Tacos",
-    "Risotto med svamp och zuccini",
-    "Rotfrukter i ugn med fetaost och bönsallad",
-    "Grönsakslasagne", "Vegetarisk chili",
-    "Quinoasallad med rostade grönsaker",
-    "Linsgryta med kokosmjölk", "Vegetariska biffar med sötpotatis",
-    "Svamprisotto", "Grönsakscurry med ris",
-    "Falafel med hummus och pitabröd", "Vegetarisk pastagratäng",
-    "Vegetarisk pizza med grillad paprika",
-    "Vegetarisk sushi med avokado", "Grönsakswok med tofu",
-    "Vegetarisk shepherd's pie", "Stuffade paprikor med quinoa",
-    "Vegetarisk tacos med svarta bönor", "Kikärtsbiffar med tzatziki",
-    "Vegetarisk lasagne med spenat och ricotta",
-    "Grönsakssoppa med linser", "Auberginegratäng med tomatsås",
-    "Vegetarisk moussaka", "Grönsakspaj med fetaost",
-    "Broccolipasta med vitlök och chili", "Vegetariska vårrullar",
-    "Halloumiburgare med grillad ananas", "Vegetarisk paella",
-    "Spenatpannkakor med svamp", "Vegetarisk bibimbap",
-    "Grönsakstempura med dippsås",
-    "Vegetarisk bolognese med zucchininudlar", "Vegetarisk sushi bowl"
-];
+// Global state variables
 
 // Storage functions
 function loadData() {
@@ -44,7 +15,6 @@ function loadData() {
         addWeek();
     }
     renderPlanner();
-    renderSuggestions();
 }
 
 function saveData() {
@@ -259,4 +229,9 @@ function importFromCSV(file) {
 }
 
 // Initialize application
-document.addEventListener("DOMContentLoaded", loadData);
+function init() {
+    loadData();
+    renderSuggestions();
+}
+
+document.addEventListener("DOMContentLoaded", init);

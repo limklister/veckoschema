@@ -7,10 +7,6 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div class="title">
-      <h1>veckoschema</h1>
-    </div>
-
     <div class="content">
       <div id="planner"></div>
 
@@ -24,8 +20,16 @@
       <button onclick="addWeek()">Lägg till vecka</button>
       <button onclick="shareSchedule()">Dela schema</button>
       <button onclick="exportToCSV()">Exportera till CSV</button>
-      <input type="file" id="fileInput" accept=".csv" style="display: none;" onchange="importFromCSV(this.files[0])">
-      <button onclick="document.getElementById('fileInput').click()">Importera från CSV</button>
+      <input
+        type="file"
+        id="fileInput"
+        accept=".csv"
+        style="display: none"
+        onchange="importFromCSV(this.files[0])"
+      />
+      <button onclick="document.getElementById('fileInput').click()">
+        Importera från CSV
+      </button>
     </div>
     <script src="data/meals.js"></script>
     <script src="js/WeekPlanner.js"></script>

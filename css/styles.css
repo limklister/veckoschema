@@ -9,33 +9,33 @@
 }
 
 :root {
-  --green: #3B584F;
-  --yellow-bright: #F7D547;
-  --yellow: #F7D547;
-  --bronze: #C89D51;
-  --white: #FBFBF9;
-  --text: #2C3E37;
-  --text-light: #5C6E68;
+  --green: #d84315;
+  --yellow-bright: #fac763;
+  --yellow: #fac763;
+  --bronze: #f26800;
+  --white: #fbfbfb;
+  --text: #333333;
+  --text-light: #707070;
+  --primary-color: #FF8B7E;  /* Warm Coral */
+  --success-color: #FFB174;  /* Warm Orange */
+  --next-color: #FF9EAA;     /* Soft Pink */
+  --background-color: #FFF5ED; /* Warm Off-white */
+  --surface-color: #ffffff;
+  --text-color: #695E57;     /* Warm Gray */
+  --border-color: #FFE4D6;   /* Light Peach */
+  --hover-color: #FF7563;    /* Deeper Coral */
+  --shadow-color: rgba(255, 139, 126, 0.2); /* Coral Shadow */
+  --transition-speed: 0.3s;
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 body {
+  background: linear-gradient(135deg, #FFE8D6 0%, #FFDFD6 50%, #FFE6E6 100%);
   font-family: system-ui, -apple-system, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   min-height: 100vh;
-}
-.title {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  padding: 2rem;
-  background-color: var(--green);
-  color: var(--white);
-  text-align: center;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 .content {
   flex-grow: 1;
@@ -48,9 +48,9 @@ body {
   flex-direction: column;
   gap: 1rem;
   padding: 20px;
-  background-color: var(--green);
 }
 button {
+  background: linear-gradient(to bottom right, var(--primary-color), var(--hover-color));
   appearance: none;
   outline: none;
   padding: 10px;
@@ -145,7 +145,7 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--green);
+  background-color: var(--next-color);
   color: #fff;
   font-weight: bold;
   text-align: left;

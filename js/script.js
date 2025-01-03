@@ -57,7 +57,7 @@ function renderPlanner() {
         weekHeaderDiv.className = "week-header";
         weekHeaderDiv.innerHTML = `
             <span>Vecka ${weekIndex + 1}</span>
-            <button class="delete-week" onclick="deleteWeek(${weekIndex})">Ta bort vecka</button>
+            ${weekIndex > 0 ? `<button class="delete-week" onclick="deleteWeek(${weekIndex})">Ta bort vecka</button>` : ''}
         `;
         plannerDiv.appendChild(weekHeaderDiv);
 

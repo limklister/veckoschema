@@ -1,5 +1,16 @@
+:root {
+  --green: #3B584F;
+  --yellow-bright: #F7E86A;
+  --yellow: #F7D547;
+  --bronze: #C89D51;
+  --white: #FBFBF9;
+  --text: #2C3E37;
+  --text-light: #5C6E68;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
@@ -8,9 +19,13 @@ body {
 .title {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  padding: 20px;
-  background-color: #f0f0f0;
+  padding: 2rem;
+  background-color: var(--green);
+  color: var(--white);
   text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 .content {
   flex-grow: 1;
@@ -21,11 +36,13 @@ body {
 .buttons {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: var(--white);
 }
 button {
+  appearance: none;
+  outline: none;
   padding: 10px;
   cursor: pointer;
 }
@@ -56,45 +73,48 @@ table {
   border-collapse: separate;
   border-spacing: 0;
   margin-bottom: 30px;
-  background-color: #ffecb3;
+  background-color: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
 }
 th,
 td {
   padding: 15px;
   text-align: left;
-  border-bottom: 1px solid #ffe0b2;
+  border-bottom: 1px solid var(--yellow);
 }
 th {
-  background-color: #ff9800;
+  background-color: var(--green);
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
 }
 .current-day {
-  background-color: #ffcc80;
+  background-color: var(--yellow-bright);
+  font-weight: 500;
 }
 input[type="text"] {
+  appearance: none;
+  outline: none;
   width: calc(100% - 16px);
   padding: 8px;
-  border: 1px solid #ffb74d;
+  border: 1px solid var(--text-light);
   border-radius: 4px;
   font-size: 14px;
   transition: border-color 0.3s ease;
-  background-color: #fff8e1;
-  color: #5d4037;
+  background-color: white;
+  color: var(--text);
   margin: 0;
   box-sizing: border-box;
 }
 input[type="text"]:focus {
   outline: none;
-  border-color: #ff9800;
+  border-color: var(--bronze);
   box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
 }
 button {
-  background-color: #ff5722;
+  background-color: var(--green);
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -102,53 +122,67 @@ button {
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s ease;
-  margin-right: 10px;
-  margin-bottom: 20px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 button:hover {
-  background-color: #e64a19;
+  background-color: var(--bronze);
 }
 .week-header {
+  margin-top: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f4511e;
+  background-color: var(--green);
   color: #fff;
   font-weight: bold;
-  text-align: center;
-  padding: 10px 15px;
+  text-align: left;
+  padding: 0 15px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   width: calc(100% - 30px);
   box-sizing: border-box;
+  height: 56px;
 }
 .delete-week {
-  background-color: #d32f2f;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
+  background-color: var(--bronze);
+  color: var(--white);
+  border: 2px solid transparent;
+  padding: 6px 12px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 0.8em;
+  font-size: 0.85em;
   margin-left: 10px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .delete-week:hover {
-  background-color: #b71c1c;
+  background-color: var(--white);
+  color: var(--bronze);
+  border-color: var(--bronze);
 }
 #suggestions {
-  margin-top: 30px;
-  background-color: #e8f5e9;
+  margin-top: 2rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  margin-top: 2rem;
+  background-color: var(--white);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 #suggestions h2 {
-  color: #2e7d32;
+  color: var(--text);
   margin-bottom: 15px;
 }
 .suggestion {
-  background-color: #c8e6c9;
+  transition: all 0.2s ease-in-out;
+  background-color: var(--yellow-bright);
   padding: 10px;
   margin: 5px;
   border-radius: 5px;
@@ -157,7 +191,8 @@ button:hover {
   transition: background-color 0.3s ease;
 }
 .suggestion:hover {
-  background-color: #a5d6a7;
+  background-color: var(--bronze);
+  color: var(--text);
 }
 .suggestion.dragging {
   opacity: 0.5;

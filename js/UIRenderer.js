@@ -44,7 +44,7 @@ class UIRenderer {
             <span>Vecka ${weekIndex + 1}</span>
             ${
               weekIndex > 0
-                ? `<button class="delete-week" onclick="handleDeleteWeek(${weekIndex})">Ta bort vecka</button>`
+                ? `<button class="button" onclick="handleDeleteWeek(${weekIndex})">Ta bort vecka</button>`
                 : ""
             }
         `;

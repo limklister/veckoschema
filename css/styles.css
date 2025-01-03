@@ -124,7 +124,7 @@ input[type="text"]:focus {
   border-color: var(--bronze);
   box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
 }
-button {
+.button {
   background-color: var(--green);
   color: #fff;
   border: none;
@@ -133,8 +133,6 @@ button {
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s ease;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
   box-shadow: 0 2px 8px var(--shadow-color);
 }
 button:hover {
@@ -155,26 +153,6 @@ button:hover {
   width: calc(100% - 30px);
   box-sizing: border-box;
   height: 56px;
-}
-.delete-week {
-  background: linear-gradient(to bottom right, var(--bronze), var(--hover-color));
-  color: var(--white);
-  border: 2px solid transparent;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.85em;
-  margin-left: 10px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.delete-week:hover {
-  background-color: var(--white);
-  color: var(--bronze);
-  border-color: var(--bronze);
 }
 #suggestions {
   margin-top: 2rem;

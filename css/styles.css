@@ -1,6 +1,16 @@
+.veckoschema {
+  border-right: 4px solid var(--green);
+}
+
+.lmm-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 :root {
   --green: #3B584F;
-  --yellow-bright: #F7E86A;
+  --yellow-bright: #F7D547;
   --yellow: #F7D547;
   --bronze: #C89D51;
   --white: #FBFBF9;
@@ -38,7 +48,7 @@ body {
   flex-direction: column;
   gap: 1rem;
   padding: 20px;
-  background-color: var(--white);
+  background-color: var(--green);
 }
 button {
   appearance: none;
@@ -81,7 +91,8 @@ table {
 th,
 td {
   padding: 15px;
-  text-align: left;
+  text-align: center;
+  vertical-align: middle;
   border-bottom: 1px solid var(--yellow);
 }
 th {

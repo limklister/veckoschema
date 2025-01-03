@@ -84,8 +84,11 @@ class UIRenderer {
     dayContent.textContent = daysOfWeek[dayIndex];
 
     const suggestButton = document.createElement("button");
+    const suggestCell = document.createElement("td");
+    suggestCell.appendChild(suggestButton);
     suggestButton.className = "suggest-button";
-    suggestButton.innerHTML = '<img src="https://unpkg.com/lucide-static@latest/icons/lightbulb.svg" alt="Suggest" class="lightbulb-icon" />';
+    suggestButton.innerHTML =
+      '<img src="https://unpkg.com/lucide-static@latest/icons/lightbulb.svg" alt="Suggest" class="lightbulb-icon" />';
     suggestButton.onclick = (e) => {
       e.stopPropagation();
 
@@ -186,7 +189,7 @@ class UIRenderer {
     dinnerCell.appendChild(input);
     row.appendChild(dayCell);
     row.appendChild(dinnerCell);
-    row.appendChild(suggestButton);
+    row.appendChild(suggestCell);
 
     return row;
   }

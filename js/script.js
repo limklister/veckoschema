@@ -229,8 +229,50 @@ function importFromCSV(file) {
 }
 
 // Initialize application
+function encodeWeeksToUrl() {
+    const encoded = encodeURIComponent(btoa(weeks.map(week => 
+        week.map(day => day || '_').join(',')
+    ).join('|')));
+    return `${window.location.origin}${window.location.pathname}?w=${encoded}`;
+}
+
+function decodeUrlToWeeks(encoded) {
+    try {
+        const decoded = atob(decodeURIComponent(encoded));
+        return decoded.split('|').map(week => 
+            week.split(',').map(day => day === '_' ? '' : day)
+        );
+    } catch (e) {
+        console.error('Failed to decode URL:', e);
+        return null;
+    }
+}
+
+function shareSchedule() {
+    const url = encodeWeeksToUrl();
+    navigator.clipboard.writeText(url).then(() => {
+        alert('Länk kopierad till urklipp!');
+    }).catch(err => {
+        console.error('Failed to copy URL:', err);
+        prompt('Kopiera denna länk:', url);
+    });
+}
+
 function init() {
-    loadData();
+    const urlParams = new URLSearchParams(window.location.search);
+    const encodedData = urlParams.get('w');
+    
+    if (encodedData) {
+        const decodedWeeks = decodeUrlToWeeks(encodedData);
+        if (decodedWeeks) {
+            weeks = decodedWeeks;
+            saveData();
+            renderPlanner();
+        }
+    } else {
+        loadData();
+    }
+    
     renderSuggestions();
 }
 

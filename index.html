@@ -22,6 +22,7 @@
 
     <div class="buttons">
       <button onclick="addWeek()">Lägg till vecka</button>
+      <button onclick="shareSchedule()">Dela schema</button>
       <button onclick="exportToCSV()">Exportera till CSV</button>
       <input type="file" id="fileInput" accept=".csv" style="display: none;" onchange="importFromCSV(this.files[0])">
       <button onclick="document.getElementById('fileInput').click()">Importera från CSV</button>

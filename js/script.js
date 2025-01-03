@@ -6,14 +6,16 @@ const csvManager = new CSVManager(weekPlanner);
 const uiRenderer = new UIRenderer(weekPlanner, dragDropManager);
 
 // Setup state management
-function handleStateChange(state) {
+function handleStateChange(state, redraw) {
+  console.log("State changed", state);
   storageManager.saveData(state.weeks);
-  uiRenderer.renderPlanner();
+  if (redraw) {
+    console.log("Trigger redraw", state);
+    uiRenderer.renderPlanner();
+  }
 }
 
-// Initialize the application
 function init() {
-  // Setup state change handler
   weekPlanner.init(handleStateChange);
 
   // Check for shared URL data

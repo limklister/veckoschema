@@ -85,14 +85,14 @@ class UIRenderer {
 
     const suggestButton = document.createElement("button");
     suggestButton.className = "suggest-button";
-    suggestButton.innerHTML = "+";
+    suggestButton.innerHTML = '<img src="https://unpkg.com/lucide-static@latest/icons/lightbulb.svg" alt="Suggest" class="lightbulb-icon" />';
     suggestButton.onclick = (e) => {
       e.stopPropagation();
-      
+
       // Close any existing popups
-      const existingPopup = document.querySelector('.suggestions-popup');
+      const existingPopup = document.querySelector(".suggestions-popup");
       if (existingPopup) {
-        existingPopup.classList.remove('active');
+        existingPopup.classList.remove("active");
         setTimeout(() => existingPopup.remove(), 300);
       }
       e.stopPropagation();
@@ -123,13 +123,16 @@ class UIRenderer {
       });
 
       // Append all items
-      items.forEach(item => suggestionsList.appendChild(item));
+      items.forEach((item) => suggestionsList.appendChild(item));
 
       // Scroll to highlighted item after appending
       requestAnimationFrame(() => {
         const highlightedItem = items[randomIndex];
         if (highlightedItem) {
-          highlightedItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          highlightedItem.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
         }
       });
 
@@ -139,10 +142,10 @@ class UIRenderer {
       // Close when clicking outside
       const closePopup = (e) => {
         if (!popup.contains(e.target) && e.target !== suggestButton) {
-          popup.classList.remove('active');
+          popup.classList.remove("active");
           setTimeout(() => {
             popup.remove();
-            document.removeEventListener('click', closePopup);
+            document.removeEventListener("click", closePopup);
           }, 300);
         }
       };
@@ -152,24 +155,23 @@ class UIRenderer {
       const isMobile = window.innerWidth <= 768;
 
       if (isMobile) {
-        popup.classList.add('mobile');
-        popup.style.bottom = '0';
-        popup.style.left = '0';
-        popup.style.right = '0';
-        popup.style.maxWidth = '100%';
+        popup.classList.add("mobile");
+        popup.style.bottom = "0";
+        popup.style.left = "0";
+        popup.style.right = "0";
+        popup.style.maxWidth = "100%";
       } else {
         popup.style.top = `${buttonRect.top}px`;
-        popup.style.left = `${buttonRect.right + 10}px`;
+        popup.style.left = `${buttonRect.right - 200}px`;
       }
 
       // Delay adding click listener and active class
       requestAnimationFrame(() => {
-        popup.classList.add('active');
-        setTimeout(() => document.addEventListener('click', closePopup), 100);
+        popup.classList.add("active");
+        setTimeout(() => document.addEventListener("click", closePopup), 100);
       });
     };
 
-    dayContent.appendChild(suggestButton);
     dayCell.appendChild(dayContent);
 
     const dinnerCell = document.createElement("td");
@@ -184,6 +186,7 @@ class UIRenderer {
     dinnerCell.appendChild(input);
     row.appendChild(dayCell);
     row.appendChild(dinnerCell);
+    row.appendChild(suggestButton);
 
     return row;
   }

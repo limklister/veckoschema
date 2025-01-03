@@ -86,14 +86,14 @@ table {
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: var(--shadow);
+  box-shadow: 0 2px 8px var(--shadow-color);
 }
 th,
 td {
   padding: 15px;
   text-align: center;
   vertical-align: middle;
-  border-bottom: 1px solid var(--yellow);
+  border-bottom: 1px solid var(--border-color);
 }
 th {
   background-color: var(--green);
@@ -102,7 +102,7 @@ th {
   text-transform: uppercase;
 }
 .current-day {
-  background-color: var(--yellow-bright);
+  background: linear-gradient(to bottom right, var(--yellow-bright), var(--yellow));
   font-weight: 500;
 }
 input[type="text"] {
@@ -135,10 +135,10 @@ button {
   transition: background-color 0.3s ease;
   margin-right: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px var(--shadow-color);
 }
 button:hover {
-  background-color: var(--bronze);
+  background: linear-gradient(to bottom right, var(--success-color), var(--bronze));
 }
 .week-header {
   margin-top: 2rem;
@@ -157,7 +157,7 @@ button:hover {
   height: 56px;
 }
 .delete-week {
-  background-color: var(--bronze);
+  background: linear-gradient(to bottom right, var(--bronze), var(--hover-color));
   color: var(--white);
   border: 2px solid transparent;
   padding: 6px 12px;
@@ -185,7 +185,7 @@ button:hover {
   background-color: var(--white);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px var(--shadow-color);
 }
 #suggestions h2 {
   color: var(--text);
@@ -227,7 +227,7 @@ button:hover {
   background-color: #ffe0b2;
 }
 .drag-over {
-  border: 2px dashed #ff9800;
+  box-shadow: 0 2px 8px var(--shadow-color);
 }
 #fileInput {
   display: none;
@@ -269,9 +269,9 @@ button:hover {
 
 .suggestions-popup {
   position: fixed;
-  background: white;
+  background: linear-gradient(to bottom right, var(--surface-color), var(--background-color));
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   max-width: 300px;
   width: 100%;

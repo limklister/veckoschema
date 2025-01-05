@@ -10,30 +10,31 @@
     <div class="content">
       <div id="planner"></div>
 
+      <div class="buttons">
+        <button class="button" onclick="addWeek()">Lägg till vecka</button>
+        <button class="button" onclick="shareSchedule()">Dela schema</button>
+        <button class="button" onclick="exportToCSV()">Exportera till CSV</button>
+        <input
+          type="file"
+          id="fileInput"
+          accept=".csv"
+          style="display: none"
+          onchange="importFromCSV(this.files[0])"
+        />
+        <button
+          class="button"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Importera från CSV
+        </button>
+      </div>
+
       <div id="suggestions">
         <h2>Förslag på vegetariska rätter</h2>
         <div id="suggestionsList"></div>
       </div>
     </div>
 
-    <div class="buttons">
-      <button class="button" onclick="addWeek()">Lägg till vecka</button>
-      <button class="button" onclick="shareSchedule()">Dela schema</button>
-      <button class="button" onclick="exportToCSV()">Exportera till CSV</button>
-      <input
-        type="file"
-        id="fileInput"
-        accept=".csv"
-        style="display: none"
-        onchange="importFromCSV(this.files[0])"
-      />
-      <button
-        class="button"
-        onclick="document.getElementById('fileInput').click()"
-      >
-        Importera från CSV
-      </button>
-    </div>
     <script src="data/meals.js"></script>
     <script src="js/WeekPlanner.js"></script>
     <script src="js/StorageManager.js"></script>

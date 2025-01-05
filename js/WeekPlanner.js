@@ -10,6 +10,15 @@ class WeekPlanner {
       "Lördag",
       "Söndag",
     ];
+    this.daysOfWeekAbbrev = [
+      "Mån",
+      "Tis",
+      "Ons",
+      "Tors",
+      "Fre",
+      "Lör",
+      "Sön",
+    ];
     this.onStateChange = null;
   }
 
@@ -40,7 +49,6 @@ class WeekPlanner {
   }
 
   updateDinner(weekIndex, dayIndex, dinner) {
-    // Create a debounce function if not already exists
     if (!this._debouncedUpdateDinner) {
       this._debouncedUpdateDinner = this._createDebouncedMethod(
         async (weekIndex, dayIndex, dinner) => {
@@ -51,14 +59,11 @@ class WeekPlanner {
           await this._notifyStateChange(false);
         },
         300
-      ); // 300ms debounce delay
+      );
     }
-
-    // Call the debounced method
     return this._debouncedUpdateDinner(weekIndex, dayIndex, dinner);
   }
 
-  // Utility method to create debounced methods
   _createDebouncedMethod(func, delay) {
     let timeoutId;
     return (...args) => {
@@ -87,6 +92,7 @@ class WeekPlanner {
     return {
       weeks: [...this.weeks],
       daysOfWeek: [...this.daysOfWeek],
+      daysOfWeekAbbrev: [...this.daysOfWeekAbbrev],
     };
   }
 

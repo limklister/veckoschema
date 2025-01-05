@@ -81,7 +81,7 @@ class UIRenderer {
     const dayCell = document.createElement("td");
     const dayContent = document.createElement("div");
     dayContent.className = "day-content";
-    dayContent.textContent = daysOfWeek[dayIndex];
+    dayContent.textContent = window.innerWidth <= 768 ? this.weekPlanner.getState().daysOfWeekAbbrev[dayIndex] : daysOfWeek[dayIndex];
 
     const suggestButton = document.createElement("button");
     const suggestCell = document.createElement("td");

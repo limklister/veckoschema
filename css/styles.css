@@ -16,15 +16,15 @@
   --white: #fbfbfb;
   --text: #333333;
   --text-light: #707070;
-  --primary-color: #FF8B7E;  /* Warm Coral */
-  --success-color: #FFB174;  /* Warm Orange */
-  --next-color: #FF9EAA;     /* Soft Pink */
-  --background-color: #FFF5ED; /* Warm Off-white */
+  --primary-color: #FF8B7E;
+  --success-color: #FFB174;
+  --next-color: #FF9EAA;
+  --background-color: #FFF5ED;
   --surface-color: #ffffff;
-  --text-color: #695E57;     /* Warm Gray */
-  --border-color: #FFE4D6;   /* Light Peach */
-  --hover-color: #FF7563;    /* Deeper Coral */
-  --shadow-color: rgba(255, 139, 126, 0.2); /* Coral Shadow */
+  --text-color: #695E57;
+  --border-color: #FFE4D6;
+  --hover-color: #FF7563;
+  --shadow-color: rgba(255, 139, 126, 0.2);
   --transition-speed: 0.3s;
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
@@ -37,40 +37,53 @@ body {
   display: flex;
   min-height: 100vh;
 }
+
 .content {
   flex-grow: 1;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 }
+
 .buttons {
   display: flex;
-  flex-direction: column;
   gap: 1rem;
-  padding: 20px;
+  padding: 10px 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 800px;
 }
+
+.button {
+  background-color: var(--green);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  flex: 0 1 auto;
+  min-width: 160px;
+  text-align: center;
+}
+
 button {
   background: linear-gradient(to bottom right, var(--primary-color), var(--hover-color));
   appearance: none;
   outline: none;
-  padding: 10px;
   cursor: pointer;
 }
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
-  .title {
-    writing-mode: horizontal-tb;
-    transform: none;
-    padding: 10px;
-  }
-  .buttons {
-    flex-direction: row;
-    justify-content: space-around;
-    order: -1;
-  }
+
+button:hover {
+  background: linear-gradient(to bottom right, var(--success-color), var(--bronze));
+  transform: translateY(-1px);
 }
+
 h1 {
   text-align: center;
   color: #d84315;
@@ -78,6 +91,7 @@ h1 {
   font-size: 2.5em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 table {
   width: 100%;
   border-collapse: separate;
@@ -88,6 +102,7 @@ table {
   overflow: hidden;
   box-shadow: 0 2px 8px var(--shadow-color);
 }
+
 th,
 td {
   padding: 15px;
@@ -95,49 +110,14 @@ td {
   vertical-align: middle;
   border-bottom: 1px solid var(--border-color);
 }
+
 th {
   background-color: var(--green);
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
 }
-.current-day {
-  background: linear-gradient(to bottom right, var(--yellow-bright), var(--yellow));
-  font-weight: 500;
-}
-input[type="text"] {
-  appearance: none;
-  outline: none;
-  width: calc(100% - 16px);
-  padding: 8px;
-  border: 1px solid var(--text-light);
-  border-radius: 4px;
-  font-size: 14px;
-  transition: border-color 0.3s ease;
-  background-color: white;
-  color: var(--text);
-  margin: 0;
-  box-sizing: border-box;
-}
-input[type="text"]:focus {
-  outline: none;
-  border-color: var(--bronze);
-  box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
-}
-.button {
-  background-color: var(--green);
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 2px 8px var(--shadow-color);
-}
-button:hover {
-  background: linear-gradient(to bottom right, var(--success-color), var(--bronze));
-}
+
 .week-header {
   margin-top: 2rem;
   display: flex;
@@ -154,21 +134,59 @@ button:hover {
   box-sizing: border-box;
   height: 56px;
 }
-#suggestions {
-  margin-top: 2rem;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: var(--shadow);
-  margin-top: 2rem;
-  background-color: var(--white);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px var(--shadow-color);
+
+.week-header button {
+  font-size: 14px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 4px;
+  box-shadow: none;
 }
+
+.week-header button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.current-day {
+  background: linear-gradient(to bottom right, var(--yellow-bright), var(--yellow));
+  font-weight: 500;
+}
+
+input[type="text"] {
+  appearance: none;
+  outline: none;
+  width: calc(100% - 16px);
+  padding: 8px;
+  border: 1px solid var(--text-light);
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+  background-color: white;
+  color: var(--text);
+  margin: 0;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--bronze);
+  box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+}
+
+#suggestions {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
 #suggestions h2 {
   color: var(--text);
   margin-bottom: 15px;
 }
+
 .suggestion {
   transition: all 0.2s ease-in-out;
   background-color: var(--yellow-bright);
@@ -179,34 +197,38 @@ button:hover {
   display: inline-block;
   transition: background-color 0.3s ease;
 }
+
 .suggestion:hover {
   background-color: var(--bronze);
   color: var(--text);
 }
+
 .suggestion.dragging {
   opacity: 0.5;
 }
+
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
+
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
+
 .draggable {
   cursor: move;
 }
+
 .dragging {
   opacity: 0.5;
   background-color: #ffe0b2;
 }
+
 .drag-over {
   box-shadow: 0 2px 8px var(--shadow-color);
 }
+
 #fileInput {
   display: none;
 }
@@ -243,7 +265,6 @@ button:hover {
   transform: scale(1.1);
   filter: invert(30%) sepia(50%) saturate(3000%) hue-rotate(120deg) brightness(90%) contrast(100%);
 }
-
 
 .suggestions-popup {
   position: fixed;
@@ -295,3 +316,80 @@ button:hover {
   font-weight: 500;
 }
 
+@media (max-width: 768px) {
+  th,
+  td {
+    padding: 8px 4px;
+  }
+
+  .day-content {
+    gap: 0.25rem;
+  }
+
+  input[type="text"] {
+    font-size: 13px;
+    padding: 6px;
+    width: calc(100% - 12px);
+  }
+
+  .suggest-button {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+  }
+
+  .suggest-button .lightbulb-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  body {
+    flex-direction: column;
+  }
+  
+  .title {
+    writing-mode: horizontal-tb;
+    transform: none;
+    padding: 10px;
+  }
+  
+  .content {
+    padding: 15px;
+    gap: 1rem;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 10px 0;
+    width: 100%;
+    max-width: none;
+  }
+  
+  .button {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    padding: 12px 10px;
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  
+  .week-header {
+    padding: 0 10px;
+    height: 48px;
+  }
+  
+  .week-header button {
+    font-size: 12px;
+    padding: 4px 8px;
+    min-width: 0;
+    width: auto;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

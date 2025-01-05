@@ -87,8 +87,13 @@ class UIRenderer {
     const suggestCell = document.createElement("td");
     suggestCell.appendChild(suggestButton);
     suggestButton.className = "suggest-button";
-    suggestButton.innerHTML =
-      '<img src="https://unpkg.com/lucide-static@latest/icons/lightbulb.svg" alt="Suggest" class="lightbulb-icon" />';
+    suggestButton.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="lightbulb-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 19h6"/>
+        <path d="M10 22h4"/>
+        <path d="M17 7.5a5.5 5.5 0 1 0-10 0c0 1.5 1 2.8 2.5 4l.5 4.5h4l.5-4.5c1.5-1.2 2.5-2.5 2.5-4z"/>
+      </svg>
+    `;
     suggestButton.onclick = (e) => {
       e.stopPropagation();
 

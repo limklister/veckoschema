@@ -257,13 +257,13 @@ input[type="text"]:focus {
 .suggest-button .lightbulb-icon {
   width: 24px;
   height: 24px;
-  filter: invert(50%) sepia(50%) saturate(3000%) hue-rotate(10deg) brightness(90%) contrast(100%);
   transition: transform 0.2s ease;
+  color: var(--bronze);
 }
 
 .suggest-button:hover .lightbulb-icon {
   transform: scale(1.1);
-  filter: invert(30%) sepia(50%) saturate(3000%) hue-rotate(120deg) brightness(90%) contrast(100%);
+  color: var(--hover-color);
 }
 
 .suggestions-popup {
